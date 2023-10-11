@@ -134,15 +134,16 @@ class GameViewModel @Inject constructor() : ViewModel() {
             stopTimer()
             status = GameStatus.LOSE
             uncoverGame()
-        }else if(countUncoveredTiles() == minesPositions.size) {
+        } else if(status == GameStatus.STARTED){
+            checkNeighbors(tile.first,tile.second)
+        }
+
+        if(countUncoveredTiles() == minesPositions.size) {
             stopTimer()
             status = GameStatus.WON
             uncoverGame()
-        }else{
-            if(status == GameStatus.STARTED){
-                checkNeighbors(tile.first,tile.second)
-            }
         }
+
         _gameState.update {
             it.copy(
                 gameStatus = status,

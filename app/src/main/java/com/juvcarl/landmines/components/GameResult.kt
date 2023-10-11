@@ -20,7 +20,7 @@ import com.juvcarl.landmines.ui.theme.LandMinesTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameResult(status: GameStatus, modifier: Modifier = Modifier){
-    val color = if(status == GameStatus.LOSE) Color.Red else Color.Green
+    val color = if(status == GameStatus.LOSE) Color.Red else Color.Magenta
     val message = if(status == GameStatus.LOSE) stringResource(id = R.string.you_lose) else stringResource(id = R.string.you_win)
 
     Card(modifier = modifier,
